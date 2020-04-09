@@ -7,6 +7,7 @@ require_relative 'lib/log_parser/analyzer.rb'
 require_relative 'lib/log_parser/presenter.rb'
 require_relative 'lib/log_parser/statistics/most_visited.rb'
 require_relative 'lib/log_parser/statistics/most_unique_visited.rb'
+require_relative 'lib/log_parser/validations/log_file.rb'
 
 file_path = ARGV[0]
 LogParser::Runner.new(file_path).perform_analytics

@@ -7,6 +7,7 @@ module LogParser
     end
 
     def perform_analytics
+      validator.validate_file!
       analyzed = analyzer.new(processor).perform
       presenter.new(analyzed).report
     end
@@ -25,6 +26,10 @@ module LogParser
 
     def presenter
       LogParser::Presenter
+    end
+
+    def validator
+      LogParser::Validations::LogFile.new(file_path)
     end
   end
 end
