@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+require_relative '../statistics_script'
+
+$0 = 'statistics_script'
