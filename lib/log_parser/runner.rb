@@ -7,7 +7,8 @@ module LogParser
     end
 
     def perform_analytics
-      analyzer.new(processor).perform
+      analyzed = analyzer.new(processor).perform
+      presenter.new(analyzed).report
     end
 
     private
@@ -20,6 +21,10 @@ module LogParser
 
     def analyzer
       LogParser::Analyzer
+    end
+
+    def presenter
+      LogParser::Presenter
     end
   end
 end
