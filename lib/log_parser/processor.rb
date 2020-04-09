@@ -7,7 +7,7 @@ module LogParser
     end
 
     def read_from_file
-      File.readlines(file_path).map { |line| make_record(line) }
+      File.readlines(file_path).map(&method(:make_record))
     end
 
     private

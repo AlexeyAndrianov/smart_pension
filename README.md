@@ -10,9 +10,30 @@ $ bundle install
 ```
 ## Usage
 ```
+Granting permissions:
+chmod +x bin/statistics_script
+
+Running the script:
 $ ./bin/statistics_script log/webserver.log
 ```
+
+## What this script does:
+```
+* Validates file with logs (if it's exist?, if it's not empty?)
+* Analyzes provided file by two strategies (most visited, most unique visited)
+* Outputs results to stdout stream (console)
+
+```
+
 ## Running tests
 ```
 rspec
+```
+## Possible improvements:
+```
+* Large files handling.
+* Add more validations for records in file(ip is not nil, endpoint is not nil, ip and endpoint regex validations)
+* Improve terminal User Interface
+
+
 ```

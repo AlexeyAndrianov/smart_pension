@@ -5,41 +5,26 @@ module LogParser
     class LogFile
       def initialize(file_path)
         @file_path = file_path
-        @errors = []
       end
 
       def validate_file!
-        return true if file_exists? && file_not_empty?
-
-        puts 'Validation has failed with following errors:'
-        raise StandardError, errors.join(', ')
+        file_exists? && file_not_empty?
       end
 
       private
 
-      attr_reader :file_path, :errors
+      attr_reader :file_path
 
       def file_exists?
-        open_file
-      rescue Errno::ENOENT
-        add_error('File not found!')
-        false
+        raise NoFileError unless File.exist?(file_path)
+
+        true
       end
 
       def file_not_empty?
-        result = !open_file.read.empty?
+        raise EmptyFileError if File.empty?(file_path)
 
-        errors.push('File is empty!') unless result
-
-        result
-      end
-
-      def open_file
-        File.open(@file_path, 'r')
-      end
-
-      def add_error(error)
-        errors.push(error)
+        true
       end
     end
   end

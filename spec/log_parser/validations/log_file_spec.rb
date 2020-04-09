@@ -10,13 +10,13 @@ RSpec.describe LogParser::Validations::LogFile do
   describe '#validate_file!' do
     context 'when file is empty' do
       it 'raises correct error' do
-        expect { for_epmty_file.validate_file! }.to raise_error('File is empty!')
+        expect { for_epmty_file.validate_file! }.to raise_error(LogParser::EmptyFileError)
       end
     end
 
     context 'when path is invalid' do
       it 'raises correct error' do
-        expect { for_invalid_path.validate_file! }.to raise_error('File not found!')
+        expect { for_invalid_path.validate_file! }.to raise_error(LogParser::NoFileError)
       end
     end
 
