@@ -2,3 +2,14 @@ Documentation:
   Enabled: false
 Metrics/LineLength:
   Max: 100
+AllCops:
+  Exclude:
+    - 'spec/spec_helper.rb'
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/log_parser/analyzer_spec.rb'
+    - 'spec/log_parser/presenter_spec.rb'
+    - 'spec/log_parser/runner_spec.rb'
+Style/EachWithObject:
+  Exclude:
+    - 'lib/log_parser/statistics/most_visited.rb'

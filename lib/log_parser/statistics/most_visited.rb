@@ -4,11 +4,12 @@ module LogParser
   module Statistics
     class MostVisited
       def self.gather_stats(records)
-        records.reduce({}) do |stats, record|
+        analyzed_stats = records.reduce({}) do |stats, record|
           stats[record.endpoint] ? stats[record.endpoint] += 1 : stats[record.endpoint] = 1
 
           stats
-        end.sort_by { |_endpoint, count| -count }.to_h
+        end
+        analyzed_stats.sort_by { |_endpoint, count| -count }.to_h
       end
     end
   end
