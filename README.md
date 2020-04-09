@@ -22,7 +22,6 @@ $ ./bin/statistics_script log/webserver.log
 * Validates file with logs (if it's exist?, if it's not empty?)
 * Analyzes provided file by two strategies (most visited, most unique visited)
 * Outputs results to stdout stream (console)
-
 ```
 
 ## Running tests
@@ -31,9 +30,7 @@ rspec
 ```
 ## Possible improvements:
 ```
-* Large files handling.
-* Add more validations for records in file(ip is not nil, endpoint is not nil, ip and endpoint regex validations)
-* Improve terminal User Interface
-
-
+* Large files handling (to not load all file in memory)
+* Add validations for records in file(ip is not nil, endpoint is not nil, ip and endpoint regex validations)
+* Handle multiple log files analysis
 ```
