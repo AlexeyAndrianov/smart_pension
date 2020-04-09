@@ -32,5 +32,5 @@ rspec
 ```
 * Large files handling (to not load all file in memory)
 * Add validations for records in file(ip is not nil, endpoint is not nil, ip and endpoint regex validations)
-* Handle multiple log files analysis
+* Handle multiple log files analysis (when running script, take file names divided by space)
 ```
